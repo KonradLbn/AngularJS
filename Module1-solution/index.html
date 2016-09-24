@@ -11,10 +11,12 @@
     </style>
   </head>
 <body ng-app="LunchCheck">
-   <div class="container" ng-controller="LunchCheck">
+   <div class="container" ng-controller="LunchCheckController">
      <h1>Lunch Checker</h1>
-
          <div class="form-group">
+           <div>
+             System do NOT consider an empty item, i.e., , , as an item towards to the count.
+           </div>
              <input id="lunch-menu" type="text"
              placeholder="list comma separated dishes you usually have for lunch"
              class="form-control"
