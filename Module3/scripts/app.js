@@ -24,7 +24,7 @@
         var ctrl = this;
 
         ctrl.searchMenu = function (searchTerm) {
-            ctrl.found = MenuSearchService.getMatchedMenuItems(searchTerm).then(function (data) {
+            MenuSearchService.getMatchedMenuItems(searchTerm).then(function (data) {
                 ctrl.found = data;
             });
         };
@@ -48,14 +48,13 @@
                     var data = response.data.menu_items;
                     if (searchTerm) {
                         searchTerm = searchTerm.toLowerCase();
+
+                        data.forEach(function (item) {
+                            if (item.name.toLowerCase().indexOf(searchTerm) !== -1) {
+                                lst.push(item)
+                            }
+                        });
                     }
-
-                    data.forEach(function (item) {
-                        if (item.name.toLowerCase().indexOf(searchTerm) !== -1) {
-                            lst.push(item)
-                        }
-                    });
-
                     return lst;
                 });
 
