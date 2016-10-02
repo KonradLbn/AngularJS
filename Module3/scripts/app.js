@@ -19,7 +19,7 @@
         return ddo;
     }
 
-    NarrowItDownController.$injected = ['MenuSearchService'];
+    NarrowItDownController.$inject = ['MenuSearchService'];
     function NarrowItDownController(MenuSearchService) {
         var ctrl = this;
 
@@ -34,7 +34,7 @@
         }
     };
 
-    MenuSearchService.$injected = ['$http', 'ApiPath'];
+    MenuSearchService.$inject = ['$http', 'ApiPath'];
     function MenuSearchService($http, ApiPath) {
         var service = this;
         service.getMatchedMenuItems = function (searchTerm) {
